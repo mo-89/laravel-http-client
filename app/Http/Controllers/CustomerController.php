@@ -31,6 +31,12 @@ class CustomerController extends Controller
         // $apiKey = 'test_failure';
         $url = 'http://host.docker.internal:8082/api/customers';
 
+        // redirect url
+        // $url = 'http://host.docker.internal:8082/api/redirect_customers';
+
+        // 307
+        // $url = 'http://host.docker.internal:8082/api/handle-post';
+
         // HTTP clientを使って別のLaravelプロジェクトにPOSTリクエスト
         $response = Http::withHeaders([
             'x-api-key' => $apiKey,
