@@ -27,8 +27,8 @@ class CustomerController extends Controller
         $customer = Customer::create($validated);
 
         // APIキー
-        // $apiKey = 'test';
-        $apiKey = 'test_failure';
+        $apiKey = 'test';
+        // $apiKey = 'test_failure';
         $url = 'http://host.docker.internal:8082/api/customers';
 
         // HTTP clientを使って別のLaravelプロジェクトにPOSTリクエスト
@@ -39,7 +39,8 @@ class CustomerController extends Controller
         ])->post($url, $validated);
 
         // log response
-        Log::info($response);
+        Log::info($response->body());
+        Log::info($response->status());
 
         return redirect()->route('customers.create')->with('status', 'Successfully created and posted!');
     }
