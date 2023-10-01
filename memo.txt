@@ -5,11 +5,11 @@ composer global require laravel/installer
 ./vendor/bin/sail artisan make:migration create_customers_table
 
 Schema::create('customers', function (Blueprint $table) {
-     $table->id();
-     $table->string('name');
-     $table->integer('age');
-     $table->text('memo')->nullable();
-     $table->timestamps();
+    $table->id();
+    $table->string('name');
+    $table->integer('age');
+    $table->text('memo')->nullable();
+    $table->timestamps();
 });
 ./vendor/bin/sail artisan migrate
 
@@ -47,7 +47,7 @@ docker compose downをしないといけない？
 
 docker exec -it http_client-mysql-1 bash
 
-mysql -u sail -ppassword
+mysql -u sail -p
 
 use laravel;
 
@@ -83,7 +83,6 @@ docker-compose.yml 変更
 
 docker exec -it post_server-mysql-1 bash
 
-mysql -u sail -ppassword
+mysql -u sail -p
 
 use laravel;
-
